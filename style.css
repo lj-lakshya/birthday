@@ -1,3 +1,49 @@
+@media (max-width: 768px) {
+
+  body {
+    height: auto;
+  }
+
+  main {
+    height: auto;
+    padding: 15px;
+  }
+
+  #bird {
+    width: 95vw;
+  }
+
+  #bird p {
+    width: 100%;
+    transform: none;
+    font-size: 16px;
+  }
+
+  #birdy img {
+    position: static;
+    width: 70%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+  }
+
+  #ques {
+    width: 95vw;
+    height: auto;
+    padding: 15px;
+    border-radius: 20px;
+  }
+
+  #ques p {
+    width: 100%;
+    padding: 10px;
+  }
+
+  ul {
+    font-size: 14px;
+  }
+}
+
 @keyframes float {
   0% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
@@ -129,69 +175,4 @@ ul{
 #main{
     animation: cardy;
     animation-duration: 3s;
-}
-
-/*cake*/
-#enjoybody #div{
-    width: ;
-    background-color: aliceblue;
-    padding-left: 10vw;
-    border-radius: 100%;
-    display: flex;
-    gap: 4vw;
-    justify-content: center;
-    align-items: center;
-}
-#candle{
-    display:flex;
-    gap:10px;
-    left: 41.5vw;
-    bottom: 45%;
-    position: absolute;
-}
-.candle{
-    background-color: aliceblue;
-    width: .5vw;
-    height: 2vw;
-}
-#flames{
-    display: flex;
-    gap: 7px;
-    position: absolute;
-    align-items: center;
-    margin-top: 10px;
-    animation: float;
-    animation-duration: 0.8s;
-    animation-iteration-count: infinite;  
-    bottom: 48%;
-    left: 41vw;
-}
-.flames{
-    background-color: yellow;
-    width: 1vw;
-    height: 2vw;
-    border-radius: 100%;
-}
-.flames {
-  transition: opacity 0.6s ease;
-}
-.flames.off {
-  opacity: 0;
-}
-#cakemain{
-    background-color:bisque;
-    height: 60vw;
-    width: ;
-    border-radius: 10%;
-    padding-top: 5vw;
-    margin-top: 5vw;
-    border: 10px inset whitesmoke;
-    box-shadow: 10px 40px 10px rgba(0,0,0,1);
-    animation: cake;
-    animation-duration:4s;
-    background-image: url(Gemini_Generated_Image_5jx4ln5jx4ln5jx4.png);
-    background-position: center left;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position:relative;
 }
