@@ -45,7 +45,7 @@ body{
 /*this is the yellow one*/
 #bird{
     background-color: antiquewhite;
-    width: 50vw;
+    width: 80vw;
     border: 10px dashed wheat;
     transform: rotate('45deg');
     position: relative;
@@ -95,9 +95,9 @@ footer{
 #ques{
     margin-top: 50px;
     width:50vw;
-    height: 60vw;
+    height: 80vw;
     line-height: 3;
-    padding-left:100px;
+    padding-left:10px;
     border-radius: 10px;
     color: rgb(255, 224, 167);
     animation: float;
@@ -110,7 +110,7 @@ footer{
     background-color: rgb(176, 166, 166);
     border-radius: 10px;
     width:30vw ;
-    padding-left: 8vw;
+    padding-left: 2vw;
     animation: float;
     animation-duration: 0.8s;
     animation-iteration-count: infinite;   
