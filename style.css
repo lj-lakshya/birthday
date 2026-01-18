@@ -58,7 +58,7 @@ header{
 main{
     background-color:pink;
     border-radius: 10px;
-    height: 150vh;
+    height: 105vh;
 }
 
 #birdy img{
@@ -81,7 +81,7 @@ footer{
 #ques{
     margin-top: 50px;
     width:80vw;
-    height: 50vh;
+    height: 30vh;
     line-height: 3;
     padding-left:20px;
     border-radius: 6px;
