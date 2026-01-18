@@ -71,7 +71,7 @@ header{
 }
 main{
     background-color:pink;
-    border-radius: 100px;
+    border-radius: 10px;
     height: 120vw;
 }
 
@@ -98,7 +98,7 @@ footer{
     height: 60vw;
     line-height: 3;
     padding-left:100px;
-    border-radius: 100px;
+    border-radius: 10px;
     color: rgb(255, 224, 167);
     animation: float;
     animation-duration: 0.8s;
@@ -108,7 +108,7 @@ footer{
 }
 #ques p{
     background-color: rgb(176, 166, 166);
-    border-radius: 100px;
+    border-radius: 10px;
     width:30vw ;
     padding-left: 8vw;
     animation: float;
