@@ -23,6 +23,7 @@
     to{
     
     }
+
 }
 
 body{
@@ -63,8 +64,8 @@ main{
 }
 
 #birdy img{
-    width: 25vw;
-    height:30vw ;
+    width: 30vw;
+    height:35vw ;
     object-fit:cover;
     border-radius: 10px;
     position: absolute;
