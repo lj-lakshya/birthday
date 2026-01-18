@@ -1,4 +1,4 @@
-keyframes float {
+@keyframes float {
   0% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
   100% { transform: translateY(0); }
@@ -24,80 +24,17 @@ keyframes float {
 
     }
 }
-@keyframes cake {
-    from{
-        background-image: url(Gemini_Generated_Image_4hjf9p4hjf9p4hjf.png); 
-
-        background-repeat:space;
-    }
-    to{
-        
-
-    }
-}
-
-@media (max-width: 768px) {
-
-  body {
-    padding-top: 10px;
-  }
-
-  header {
-    padding-top: 30px;
-  }
-
-  #bird {
-    width: 90vw;
-    margin: auto;
-    padding: 10px;
-  }
-
-  #bird p {
-    width: 90%;
-    font-size: 16px;
-    transform: none;
-  }
-
-  #birdy img {
-    position: static;
-    width: 60vw;
-    height: auto;
-    display: block;
-    margin: 10px auto;
-  }
-
-  main {
-    height: auto;
-    padding: 15px;
-  }
-
-  #ques {
-    width: 90vw;
-    height: auto;
-    padding: 20px;
-    margin: 20px auto;
-    background-size: cover;
-  }
-
-  #ques p {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-  }
-
-}
-
 
 body{
     background-color: rgb(248, 219, 248);
-    padding-top: 50px;
+    padding-top: 10px;
+    height:200vw;
 }
 /*this is the yellow one*/
 #bird{
     background-color: antiquewhite;
-    width: 50vw;
+    width: 80vw;
     border: 10px dashed wheat;
-    transform: rotate('45deg');
     position: relative;
     padding-right: 0px;
     overflow: auto;
@@ -106,14 +43,14 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 100px
+    padding-top: 50px
 }
 #bird p{
     color: ;
     background-color: antiquewhite;
     font-size: 20px;
     font-family:cursive;
-    transform: translateX(8vw);
+    transform: translateX(6vw);
     width:25vw;
 }
 #bird div{
@@ -121,7 +58,7 @@ header{
 }
 main{
     background-color:pink;
-    border-radius: 100px;
+    border-radius: 20px;
     height: 90vw;
 }
 
