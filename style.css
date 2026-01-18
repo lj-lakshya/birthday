@@ -1,4 +1,4 @@
-@keyframes float {
+keyframes float {
   0% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
   100% { transform: translateY(0); }
@@ -36,6 +36,56 @@
     }
 }
 
+@media (max-width: 768px) {
+
+  body {
+    padding-top: 10px;
+  }
+
+  header {
+    padding-top: 30px;
+  }
+
+  #bird {
+    width: 90vw;
+    margin: auto;
+    padding: 10px;
+  }
+
+  #bird p {
+    width: 90%;
+    font-size: 16px;
+    transform: none;
+  }
+
+  #birdy img {
+    position: static;
+    width: 60vw;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+  }
+
+  main {
+    height: auto;
+    padding: 15px;
+  }
+
+  #ques {
+    width: 90vw;
+    height: auto;
+    padding: 20px;
+    margin: 20px auto;
+    background-size: cover;
+  }
+
+  #ques p {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+}
 
 
 body{
@@ -45,7 +95,7 @@ body{
 /*this is the yellow one*/
 #bird{
     background-color: antiquewhite;
-    width: 80vw;
+    width: 50vw;
     border: 10px dashed wheat;
     transform: rotate('45deg');
     position: relative;
@@ -71,8 +121,8 @@ header{
 }
 main{
     background-color:pink;
-    border-radius: 10px;
-    height: 120vw;
+    border-radius: 100px;
+    height: 90vw;
 }
 
 #birdy img{
@@ -95,10 +145,10 @@ footer{
 #ques{
     margin-top: 50px;
     width:50vw;
-    height: 80vw;
+    height: 30vw;
     line-height: 3;
-    padding-left:10px;
-    border-radius: 10px;
+    padding-left:100px;
+    border-radius: 100px;
     color: rgb(255, 224, 167);
     animation: float;
     animation-duration: 0.8s;
@@ -108,9 +158,9 @@ footer{
 }
 #ques p{
     background-color: rgb(176, 166, 166);
-    border-radius: 10px;
+    border-radius: 100px;
     width:30vw ;
-    padding-left: 2vw;
+    padding-left: 8vw;
     animation: float;
     animation-duration: 0.8s;
     animation-iteration-count: infinite;   
