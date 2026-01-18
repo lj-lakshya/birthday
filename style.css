@@ -1,0 +1,210 @@
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+#imagemain{
+  animation: cinematicIn 0.5s ease forwards, drift 5s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from {
+    transform: scale(1.05) translateX(-10px);  
+  }
+  to {
+    transform: scale(1.08) translateX(10px);
+  }
+}
+@keyframes cardy {
+    from{
+        opacity: 0;
+        background-color: cyan;
+    }
+    to{
+
+    }
+}
+@keyframes cake {
+    from{
+        background-image: url(Gemini_Generated_Image_4hjf9p4hjf9p4hjf.png); 
+
+        background-repeat:space;
+    }
+    to{
+        
+
+    }
+}
+
+
+
+body{
+    background-color: rgb(248, 219, 248);
+    padding-top: 50px;
+}
+/*this is the yellow one*/
+#bird{
+    background-color: antiquewhite;
+    width: 50vw;
+    border: 10px dashed wheat;
+    transform: rotate('45deg');
+    position: relative;
+    padding-right: 0px;
+    overflow: auto;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px
+}
+#bird p{
+    color: ;
+    background-color: antiquewhite;
+    font-size: 20px;
+    font-family:cursive;
+    transform: translateX(8vw);
+    width:25vw;
+}
+#bird div{
+    float: left;
+}
+main{
+    background-color:pink;
+    border-radius: 100px;
+    height: 90vw;
+}
+
+#birdy img{
+    width: 15vw;
+    height:20vw ;
+    object-fit:cover;
+    border-radius: 10px;
+    position: absolute;
+    right: 1vw;
+    top: 1vw;
+}
+
+/*this is question part*/
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#ques{
+    margin-top: 50px;
+    width:50vw;
+    height: 30vw;
+    line-height: 3;
+    padding-left:100px;
+    border-radius: 100px;
+    color: rgb(255, 224, 167);
+    animation: float;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;  
+    background-image: url(Gemini_Generated_Image_hvmkuchvmkuchvmk.png);
+    background-position: center left;
+}
+#ques p{
+    background-color: rgb(176, 166, 166);
+    border-radius: 100px;
+    width:30vw ;
+    padding-left: 8vw;
+    animation: float;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;   
+}
+/*card*/
+#cardbody{
+    background-image: url(Gemini_Generated_Image_jumigdjumigdjumi.png);
+    object-fit: contain;
+    background-repeat: no-repeat;
+    background-position:center;
+}
+#main{
+    background-color: rgb(214, 249, 249);
+    border-radius: 10px;
+    margin: 10px;
+    height: 100%;
+    padding-top: 10px;
+    padding-right: 20px;
+}
+ul{
+    list-style: none;
+    line-height:2;
+    color:rgb(51, 17, 84);
+    font-size: 18px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    opacity: 100%;
+}
+/*for card*/
+#main{
+    animation: cardy;
+    animation-duration: 3s;
+}
+
+/*cake*/
+#enjoybody #div{
+    width: ;
+    background-color: aliceblue;
+    padding-left: 10vw;
+    border-radius: 100%;
+    display: flex;
+    gap: 4vw;
+    justify-content: center;
+    align-items: center;
+}
+#candle{
+    display:flex;
+    gap:10px;
+    left: 41.5vw;
+    bottom: 45%;
+    position: absolute;
+}
+.candle{
+    background-color: aliceblue;
+    width: .5vw;
+    height: 2vw;
+}
+#flames{
+    display: flex;
+    gap: 7px;
+    position: absolute;
+    align-items: center;
+    margin-top: 10px;
+    animation: float;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;  
+    bottom: 48%;
+    left: 41vw;
+}
+.flames{
+    background-color: yellow;
+    width: 1vw;
+    height: 2vw;
+    border-radius: 100%;
+}
+.flames {
+  transition: opacity 0.6s ease;
+}
+.flames.off {
+  opacity: 0;
+}
+#cakemain{
+    background-color:bisque;
+    height: 60vw;
+    width: ;
+    border-radius: 10%;
+    padding-top: 5vw;
+    margin-top: 5vw;
+    border: 10px inset whitesmoke;
+    box-shadow: 10px 40px 10px rgba(0,0,0,1);
+    animation: cake;
+    animation-duration:4s;
+    background-image: url(Gemini_Generated_Image_5jx4ln5jx4ln5jx4.png);
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
+}

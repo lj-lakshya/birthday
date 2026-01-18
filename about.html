@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Celebrate — Cake & Candles</title>
+  <meta name="description" content="A clean, professional cake page with interactive, blowable candles." />
+  <style>
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:#1f2937;background:linear-gradient(180deg,#0f1724 0%, #071123 100%);}
+    a{color:inherit}
+
+    /* Page layout */
+    .container{max-width:1100px;margin:32px auto;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;box-shadow:0 10px 30px rgba(2,6,23,0.6);}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:54px;height:54px;border-radius:10px;background:linear-gradient(135deg,#ffd6a5,#ffafcc);display:flex;align-items:center;justify-content:center;font-weight:700;color:#2b2b2b}
+    h1{margin:0;font-size:20px;color:#fff}
+    p.lead{margin:4px 0 0;color:#cbd5e1}
+
+    /* Controls */
+    .controls{display:flex;gap:10px;align-items:center}
+    .btn{appearance:none;border:0;padding:10px 14px;border-radius:10px;background:#06b6d4;color:#012;cursor:pointer;font-weight:600}
+    .btn.secondary{background:transparent;color:#cbd5e1;border:1px solid rgba(255,255,255,0.06)}
+
+    /* Main content */
+    .stage{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start;margin-top:22px}
+
+    /* Card / Story */
+    .card{background:linear-gradient(180deg,#0b1220,#081018);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .card h2{color:#fff;margin:0 0 8px}
+    .card p{color:#cbd5e1;line-height:1.55;margin:0}
+
+    /* Cake area */
+    .cake-wrap{display:flex;flex-direction:column;align-items:center;gap:18px;padding:18px}
+    .cake-plate{width:420px;height:40px;border-radius:50%;background:linear-gradient(180deg,#fff,#f3f3f3);box-shadow:0 18px 40px rgba(2,6,23,0.6);}
+    .cake{position:relative;width:420px;display:flex;flex-direction:column;align-items:center;margin-top:-28px}
+    .layer{border-radius:14px;box-shadow:0 8px 18px rgba(2,6,23,0.5);}
+    .layer.bottom{width:420px;height:70px;background:#8b5e34}
+    .layer.mid{width:380px;height:60px;background:#ffcf99;margin-top:-12px}
+    .layer.top{width:320px;height:60px;background:#ffd9c7;margin-top:-12px;position:relative;display:flex;align-items:flex-start;justify-content:center}
+
+    /* Candle row */
+    .candles{position:absolute;top:-22px;left:50%;transform:translateX(-50%);display:flex;gap:10px;padding:0 12px}
+    .candle{width:28px;height:84px;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;position:relative;cursor:pointer;border:1px solid rgba(0,0,0,0.08);}
+    .candle .wick{width:4px;height:12px;background:#2b2b2b;border-radius:2px;position:relative;top:6px}
+    .flame{position:absolute;top:-20px;width:18px;height:26px;pointer-events:none;transform-origin:50% 90%;}
+    .flame .inner{width:10px;height:16px;background:radial-gradient(circle at 30% 30%, #fff7b1 0%, #ffd05a 28%, #ff8a3d 56%);border-radius:50% 50% 40% 40%;margin-left:4px}
+    .flame .glow{position:absolute;left:50%;top:60%;transform:translateX(-50%);width:28px;height:28px;background:radial-gradient(circle at 50% 40%, rgba(255,220,160,0.6), rgba(255,140,60,0.08) 40%, rgba(255,140,60,0) 80%);border-radius:50%;filter:blur(6px)}
+    .flame{animation:flicker 360ms infinite ease-in-out}
+    @keyframes flicker{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(-2px) rotate(1deg)}100%{transform:translateY(0) rotate(0)}}
+
+    /* blown state */
+    .candle.blown .flame{opacity:0;transform:translateY(-6px) scale(.7);transition:opacity .45s, transform .45s}
+    .candle.blown .wick{background:#222;opacity:0.9}
+    .puff{position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:linear-gradient(180deg,rgba(200,200,200,0.9),rgba(180,180,180,0.2));filter:blur(2px);opacity:0}
+    .candle.blown .puff:nth-child(1){animation:puff 1100ms forwards}
+    .candle.blown .puff:nth-child(2){animation:puff 1300ms 100ms forwards}
+    .candle.blown .puff:nth-child(3){animation:puff 1500ms 220ms forwards}
+    @keyframes puff{0%{transform:translate(-50%,0) scale(.6);opacity:.9}40%{opacity:.6}100%{transform:translate(-50%,-80px) scale(1.6);opacity:0}}
+
+    /* Wish message */
+    .wish{opacity:0;transform:translateY(-6px);transition:all .6s; color:#fff;font-weight:700}
+    .wish.show{opacity:1;transform:translateY(0)}
+
+    /* Confetti pieces */
+    .confetti{position:absolute;inset:0;pointer-events:none;z-index:40}
+    .confetti .piece{position:absolute;width:10px;height:14px;border-radius:2px;opacity:0.95;animation:fall linear forwards}
+    @keyframes fall{0%{transform:translateY(-20px) rotate(0)}100%{transform:translateY(420px) rotate(360deg)}}
+
+    /* Footer / notes */
+    footer{margin-top:18px;color:#9fb0c9;font-size:13px;text-align:center}
+
+    /* Responsiveness */
+    @media (max-width:880px){
+      .stage{grid-template-columns:1fr}
+      .cake-plate,.cake{width:320px}
+      .layer.bottom{width:320px}
+      .layer.mid{width:290px}
+      .layer.top{width:250px}
+      .candles{gap:8px}
+    }
+  </style>
+</head>
+<body style="background: ;">
+  <div class="container" role="main">
+    <header>
+      <div class="brand">
+        <div class="logo">🎂</div>
+        <div>
+          <h1>Celebrate — Make a Wish</h1>
+          <p class="lead">Click a candle to blow it out or enable the mic and blow into it.</p>
+        </div>
+      </div>
+      <div class="controls" role="region" aria-label="controls">
+        <button id="micBtn" class="btn secondary">Enable Mic</button>
+        <button id="relightBtn" class="btn">Relight</button>
+      </div>
+    </header>
+
+    <div class="stage">
+      <section class="card" aria-labelledby="storyTitle">
+        <h2 id="storyTitle">A short note</h2>
+        <p style="margin-top:8px;">I Couldn't think of anything to write,
+so please pretend that you're reading
+something really touching , maybe even
+wipe away a tear, and then look at screen
+and say "that is so beautiful, i didn't know
+you could write like that", then if anyone 
+asks to see the card, refuse and tell them 
+it was just too personal .
+        </pre>
+<p>-----thanks i owe you one-----</p>
+
+        <hr style="margin:18px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)" />
+
+        <h3 style="margin:0 0 8px;color:#fff">How it works</h3>
+        <p style="color:#cbd5e1;margin:0">• Click a candle to extinguish it.<br>• Use the mic button to enable "blow" detection — a short loud sound will blow all remaining candles.<br>• Click "Relight" to reset everything.</p>
+      </section>
+
+      <aside class="cake-wrap" aria-label="cake area">
+        <div class="cake-plate" aria-hidden="true"></div>
+        <div class="cake" id="cake">
+          <div class="layer bottom" aria-hidden="true"></div>
+          <div class="layer mid" aria-hidden="true"></div>
+          <div class="layer top" aria-hidden="true">
+            <div class="candles" id="candles" aria-hidden="false"></div>
+          </div>
+        </div>
+
+        <div class="wish" id="wish">All candles are out — make a wish! ✨</div>
+        <div class="confetti" id="confetti" aria-hidden="true"></div>
+      </aside>
+    </div>
+
+    <footer>
+      Tip: For the best mic detection, allow microphone access and blow from ~20–30 cm away.
+    </footer>
+  </div>
+  <button id="cd" style="height: 10%;transform: translateX(40vw);">open your card</button>
+
+  <script>
+    // Build candles dynamically and add interactions
+    const NUM_CANDLES = 7;
+    const candlesContainer = document.getElementById('candles');
+
+    for (let i = 0; i < NUM_CANDLES; i++){
+      const c = document.createElement('button');
+      c.className = 'candle';
+      c.type = 'button';
+      c.title = 'Click to blow';
+      c.setAttribute('aria-pressed','false');
+
+      // color variation
+      const hue = 20 + Math.round(i * (300 / NUM_CANDLES));
+      c.style.background = `linear-gradient(180deg,hsl(${hue} 90% 98%), hsl(${hue} 85% 90%))`;
+
+      // wick
+      const wick = document.createElement('div'); wick.className = 'wick';
+      c.appendChild(wick);
+
+      // flame
+      const flame = document.createElement('div'); flame.className = 'flame';
+      flame.innerHTML = '<div class="glow"></div><div class="inner"></div>';
+      c.appendChild(flame);
+
+      // puffs
+      const puff1 = document.createElement('div'); puff1.className = 'puff';
+      const puff2 = document.createElement('div'); puff2.className = 'puff';
+      const puff3 = document.createElement('div'); puff3.className = 'puff';
+      c.appendChild(puff1); c.appendChild(puff2); c.appendChild(puff3);
+
+      candlesContainer.appendChild(c);
+
+      // interactions
+      c.addEventListener('click', ()=> blowCandle(c));
+      c.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); blowCandle(c); } });
+    }
+
+    const candleEls = document.querySelectorAll('.candle');
+    function blowCandle(c){
+      if (c.classList.contains('blown')) return;
+      c.classList.add('blown');
+      c.setAttribute('aria-pressed','true');
+      // restart puff animations
+      const puffs = c.querySelectorAll('.puff');
+      puffs.forEach(p=>{ p.style.animation = 'none'; p.offsetHeight; p.style.animation = ''; });
+      checkAllBlown();
+    }
+
+    function relightAll(){
+      candleEls.forEach(c=>{ c.classList.remove('blown'); c.setAttribute('aria-pressed','false'); });
+      hideWish(); clearConfetti();
+    }
+    document.getElementById('relightBtn').addEventListener('click', relightAll);
+
+    // Wish + confetti
+    const wish = document.getElementById('wish');
+    const confettiEl = document.getElementById('confetti');
+    function checkAllBlown(){
+      const all = Array.from(candleEls);
+      if (all.every(c=>c.classList.contains('blown'))){
+        wish.classList.add('show');
+        launchConfetti();
+      }
+    }
+    function hideWish(){ wish.classList.remove('show'); }
+
+    function launchConfetti(){
+      clearConfetti();
+      const count = 28; const colors = ['#E91E63','#FFC107','#4CAF50','#2196F3','#9C27B0','#FF5722','#03A9F4'];
+      const area = document.getElementById('cake');
+      for (let i=0;i<count;i++){
+        const piece = document.createElement('div');
+        piece.className = 'piece';
+        piece.style.left = (20 + Math.random()*(area.offsetWidth-40)) + 'px';
+        piece.style.top = (Math.random()*40) + 'px';
+        piece.style.background = colors[Math.floor(Math.random()*colors.length)];
+        piece.style.animationDuration = (900 + Math.random()*600) + 'ms';
+        piece.style.animationDelay = (i*20) + 'ms';
+        confettiEl.appendChild(piece);
+      }
+      setTimeout(()=> clearConfetti(), 2600);
+    }
+    function clearConfetti(){ confettiEl.innerHTML = ''; }
+
+    // Mic blow detection (simple RMS) — user must grant permission
+    let audioContext, analyser, dataArray, source;
+    let micEnabled = false; let micMonitorId = null; let lastBlowTime = 0;
+    const micBtn = document.getElementById('micBtn');
+    micBtn.addEventListener('click', async ()=>{
+      if (micEnabled) { stopMic(); return; }
+      try{ await startMic(); }catch(e){ alert('Microphone unavailable or permission denied.'); console.error(e); }
+    });
+
+    async function startMic(){
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { alert('Mic not supported'); return; }
+      const stream = await navigator.mediaDevices.getUserMedia({audio:true});
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      analyser = audioContext.createAnalyser(); analyser.fftSize = 2048; dataArray = new Uint8Array(analyser.fftSize);
+      source = audioContext.createMediaStreamSource(stream); source.connect(analyser);
+      micEnabled = true; micBtn.textContent = 'Disable Mic'; monitorMic();
+    }
+
+    function stopMic(){
+      if (source && source.mediaStream) source.mediaStream.getTracks().forEach(t=>t.stop());
+      if (audioContext) audioContext.close().catch(()=>{});
+      audioContext = analyser = source = null; micEnabled = false; micBtn.textContent = 'Enable Mic';
+      if (micMonitorId) cancelAnimationFrame(micMonitorId);
+    }
+
+    function monitorMic(){
+      function check(){
+        analyser.getByteTimeDomainData(dataArray);
+        let sum=0; for (let i=0;i<dataArray.length;i++){ const v=(dataArray[i]-128)/128; sum+=v*v; }
+        const rms = Math.sqrt(sum/dataArray.length);
+        const threshold = 0.09; const now = performance.now();
+        if (rms > threshold && (now - lastBlowTime) > 600){ lastBlowTime = now; candleEls.forEach(c=>{ if(!c.classList.contains('blown')) blowCandle(c); }); }
+        micMonitorId = requestAnimationFrame(check);
+      }
+      micMonitorId = requestAnimationFrame(check);
+    }
+
+    // cleanup
+
+    window.addEventListener('beforeunload', ()=>{ if (micEnabled) stopMic(); });
+
+    let btn = document.getElementById("cd")
+    btn.addEventListener("click", () => {
+        window.location.href = "./contact.html";
+    });
+  </script>
+</body>
+</html>
